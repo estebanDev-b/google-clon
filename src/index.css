@@ -1,0 +1,130 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: "Google Sans";
+  src: url("/fonts/4UaRrENHsxJlGDuGo1OIlJfC6mGS6vhAK1YobMu2vgCI.woff2");
+}
+
+summary {
+  list-style: none; /* Quita la lista de estilos */
+  -webkit-appearance: none; /* Elimina el estilo predeterminado en WebKit */
+  padding-left: 0; /* Elimina el padding izquierdo */
+  cursor: pointer; /* Cambia el cursor para indicar que es interactivo */
+}
+
+/* Opcional: Personalización adicional */
+summary::-webkit-details-marker {
+  display: none; /* Oculta la flecha en navegadores WebKit */
+}
+
+details {
+  /* Borde alrededor del contenido */
+  /* Espaciado interno */
+  border-top: solid 1px #80808065;
+
+  padding: 5px 0;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  @apply text-colorDark;
+}
+
+#layout-grid {
+  display: grid;
+  grid-template-columns: 652px auto;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5em;
+}
+
+@media (max-width: 500px) {
+  .grid-container {
+    grid-template-columns: 1fr;
+  }
+}
+
+.grid-area-one {
+  display: grid;
+
+  grid-template-rows: auto 1fr auto;
+  grid-template-areas:
+    "pic1 pic1  pic2 pic2"
+    "pic1 pic1 pic2 pic2"
+    "pic1 pic1 pic3 pic3";
+  gap: 2px;
+  overflow: hidden;
+  border-radius: 10px;
+}
+
+.bold{
+  font-weight: bold;
+}
+
+.pic1 {
+  width: 100%;
+  height: 100%;
+  grid-area: pic1;
+  object-fit: cover;
+}
+.pic2 {
+  width: 100%;
+  height: 100%;
+  grid-area: pic2;
+  object-fit: cover;
+}
+.pic3 {
+  width: 100%;
+  height: 100%;
+  grid-area: pic3;
+  object-fit: cover;
+}
+
+#wrapper-all {
+  margin-left: 136px;
+}
+
+@media (max-width: 1232px) {
+  #wrapper-all {
+    margin-left: 60px;
+  }
+}
+
+@media (max-width: 1147px) {
+  #wrapper-all {
+    margin-left: 0;
+    padding: 0 0.6em;
+  }
+}
+
+@media (max-width: 1088px) {
+  #aside-desktop {
+    display: none;
+  }
+}
+
+@media (max-width: 1024px) {
+  .grid-area-two {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  #aside-desktop {
+    display: block;
+  }
+}
+
+.arrow-container img {
+  transition: transform 0.3s ease;
+}
+
+details[open] .arrow-container img {
+  transform: rotate(180deg); /* Rotar la flecha 180 grados */
+  transition: transform 0.3s ease;
+}
